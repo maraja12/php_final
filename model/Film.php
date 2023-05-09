@@ -23,6 +23,20 @@ class Film
         $this->rate = $rate;
         $this->review = $review;
     }
+
+    public static function getAll(mysqli $conn)
+    {
+        $q = "SELECT * FROM film";
+        return $conn->query($q);
+    }
+
+    public static function deleteById($id, mysqli $conn)
+    {
+        $q = "DELETE FROM film WHERE id=$id";
+        return $conn->query($q);
+    }
+
+
     public function createFilm()
     {
         $host = 'localhost';
